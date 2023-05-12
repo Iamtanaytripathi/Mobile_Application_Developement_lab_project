@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">focusSwipe</string>
+    <string name="name">Focus Swipe</string>
+    <string name="rect_desc">Rectangle Description</string>
+    <string name="username">User ID</string>
+    <string name="pass">Password</string>
 </resources>
