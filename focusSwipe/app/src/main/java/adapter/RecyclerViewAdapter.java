@@ -6,6 +6,7 @@ import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -14,12 +15,16 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.focusswipe.R;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder> {
 
     private Context context;
     private List<ApplicationInfo> appList;
+    private Set<Integer> selectedPositions;
+
 
     public RecyclerViewAdapter(Context context, List<ApplicationInfo> appList) {
         this.context = context;
@@ -41,6 +46,15 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
         holder.appNameTextView.setText(appName);
         holder.appIconImageView.setImageDrawable(appIcon);
+        holder.checkBox.setChecked(selectedPositions.contains(position));
+
+        holder.checkBox.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            if (isChecked) {
+                selectedPositions.add(position);
+            } else {
+                selectedPositions.remove(position);
+            }
+        });
     }
 
     @Override
@@ -48,14 +62,24 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         return appList.size();
     }
 
+    public List<ApplicationInfo> getSelectedItems() {
+        List<ApplicationInfo> selectedItems = new ArrayList<>();
+        for (int position : selectedPositions) {
+            selectedItems.add(appList.get(position));
+        }
+        return selectedItems;
+    }
+
     public class ViewHolder extends RecyclerView.ViewHolder {
         ImageView appIconImageView;
         TextView appNameTextView;
+        CheckBox checkBox;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             appIconImageView = itemView.findViewById(R.id.appIcon);
             appNameTextView = itemView.findViewById(R.id.appName);
+            checkBox = itemView.findViewById(R.id.radioButton);
         }
     }
 }
