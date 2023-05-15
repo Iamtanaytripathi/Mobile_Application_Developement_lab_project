@@ -55,7 +55,6 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         holder.checkBox.setOnCheckedChangeListener((buttonView, isChecked) -> {
             if (isChecked) {
                 // Add app to selected items
-                Toast.makeText(context, "Selected: " + appInfo.loadLabel(context.getPackageManager()), Toast.LENGTH_SHORT).show();
                 selectedItems.add(appInfo);
             } else {
                 // Remove app from selected items

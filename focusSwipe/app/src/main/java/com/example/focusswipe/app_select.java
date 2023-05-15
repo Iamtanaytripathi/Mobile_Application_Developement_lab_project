@@ -49,12 +49,6 @@ public class app_select extends AppCompatActivity {
                 if (selectedApps.isEmpty()) {
                     Toast.makeText(app_select.this, "Please select at least one app", Toast.LENGTH_SHORT).show();
                 } else {
-                    StringBuilder selectedAppsInfo = new StringBuilder();
-                    for (ApplicationInfo appInfo : RecyclerViewAdapter.getSelectedItems()) {
-                        selectedAppsInfo.append(appInfo.loadLabel(getPackageManager())).append("\n");
-                    }
-                    Toast.makeText(app_select.this, "Selected Apps from app_select:\n" + selectedAppsInfo.toString(), Toast.LENGTH_SHORT).show();
-
                     // Create an Intent to start the SelectedAppsActivity
                     Intent intent = new Intent(app_select.this, SelectedAppsActivity.class);
                     intent.putParcelableArrayListExtra("selectedApps", new ArrayList<>(selectedApps));

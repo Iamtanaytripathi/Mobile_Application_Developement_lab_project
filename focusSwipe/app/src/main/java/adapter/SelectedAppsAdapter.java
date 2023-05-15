@@ -13,7 +13,10 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.focusswipe.R;
 
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class SelectedAppsAdapter extends RecyclerView.Adapter<SelectedAppsAdapter.ViewHolder> {
 
@@ -45,6 +48,16 @@ public class SelectedAppsAdapter extends RecyclerView.Adapter<SelectedAppsAdapte
     public int getItemCount() {
         return selectedApps.size();
     }
+
+    public List<String> getSelectedAppPackageNames() {
+        List<String> selectedAppPackageNames = new ArrayList<>();
+        for (ApplicationInfo appInfo : selectedApps) {
+            selectedAppPackageNames.add(appInfo.packageName);
+        }
+        return selectedAppPackageNames;
+    }
+
+
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         ImageView appIconImageView;
