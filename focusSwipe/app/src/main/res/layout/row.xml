@@ -1,4 +1,5 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/check"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginBottom="10dp"
@@ -9,8 +10,8 @@
         android:id="@+id/appIcon"
         android:layout_width="48dp"
         android:layout_height="48dp"
-        android:src="@mipmap/ic_launcher"
-        android:layout_weight="1" />
+        android:layout_weight="1"
+        android:src="@mipmap/ic_launcher" />
 
     <TextView
         android:id="@+id/appName"
@@ -23,12 +24,10 @@
         android:textColor="@color/black"
         android:textSize="20sp" />
 
-    <RadioButton
-        android:id="@+id/radioButton"
+    <CheckBox
+        android:id="@+id/checkBox"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:buttonTint="@color/blue"
-        android:ellipsize="none" />
+        android:layout_weight="1" />
 
 </LinearLayout>

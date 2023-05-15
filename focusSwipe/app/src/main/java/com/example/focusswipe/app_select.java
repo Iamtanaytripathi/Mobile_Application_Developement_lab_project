@@ -1,9 +1,12 @@
 package com.example.focusswipe;
 
+import android.content.Intent;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -34,6 +37,25 @@ public class app_select extends AppCompatActivity {
         recyclerView.setAdapter(adapter);
 
         fetchInstalledApps();
+
+        Button continueButton = findViewById(R.id.buttonLogin_app);
+        continueButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Get the selected apps from the adapter
+                List<ApplicationInfo> selectedApps = RecyclerViewAdapter.getSelectedItems();
+
+                // Check if any apps are selected
+                if (selectedApps.isEmpty()) {
+                    Toast.makeText(app_select.this, "Please select at least one app", Toast.LENGTH_SHORT).show();
+                } else {
+                    // Create an Intent to start the SelectedAppsActivity
+                    Intent intent = new Intent(app_select.this, SelectedAppsActivity.class);
+                    intent.putParcelableArrayListExtra("selectedApps", new ArrayList<>(selectedApps));
+                    startActivity(intent);
+                }
+            }
+        });
     }
 
     private void fetchInstalledApps() {
