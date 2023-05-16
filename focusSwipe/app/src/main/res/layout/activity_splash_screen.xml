@@ -9,46 +9,54 @@
 
     <TextView
         android:id="@+id/button_splash"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="320dp"
+        android:layout_height="130dp"
         android:layout_marginStart="177dp"
-        android:layout_marginTop="355dp"
+        android:layout_marginTop="100dp"
         android:layout_marginEnd="176dp"
         android:layout_marginBottom="357dp"
-        android:text="Continue?"
+        android:text="think what you are doing"
+        android:textAlignment="center"
         android:textColor="#FFFFFF"
-        android:textSize="20sp"
+        android:textSize="40sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/buttonYes"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="74dp"
-        android:layout_marginTop="517dp"
-        android:layout_marginEnd="100dp"
-        android:layout_marginBottom="166dp"
-        android:text="Yes"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/buttonNo"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
     <Button
         android:id="@+id/buttonNo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="515dp"
-        android:layout_marginEnd="61dp"
-        android:layout_marginBottom="168dp"
-        android:text="No"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginStart="130dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginEnd="131dp"
+        android:layout_marginBottom="92dp"
+        android:background="@drawable/button_circle"
+        android:text="touch here to close the application"
+        app:layout_constraintBottom_toTopOf="@+id/buttonYes"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_splash" />
+
+    <Button
+        android:id="@+id/buttonYes"
+        android:layout_width="310dp"
+        android:layout_height="55dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="51dp"
+        android:layout_marginBottom="150dp"
+        android:background="@drawable/button_rectangle"
+        android:backgroundTint="@color/deep_blue"
+        android:text="force open"
+        android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/buttonYes"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonNo" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
